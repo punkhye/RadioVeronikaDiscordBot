@@ -50,7 +50,7 @@ const playCommand = {
             connection.subscribe(player);
             player.play(resource);
 
-            await interaction.reply(`Радио Вероника влезна в канал '${voiceChannel.name}!`);
+            await interaction.reply(`Радио Вероника влезна в канал '${voiceChannel.name}!' `);
         } catch (error) {
             console.error(error);
             await interaction.reply('Радио Вероника не успя да се свърже...');
@@ -88,5 +88,5 @@ client.on('ready', async () => {
     }
 });
 
-// Log in using the bot token
+//  Log in using the bot token
 client.login(process.env.TOKEN);
