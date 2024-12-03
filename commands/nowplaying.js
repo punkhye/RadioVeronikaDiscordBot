@@ -20,7 +20,7 @@ async function getRadioMetadata() {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('nowplaying')
-        .setDescription('Show the current artist and song name'),
+        .setDescription('Показвам коя песен върви в момента.'),
     async execute({ interaction }) {
         try {
             const metadata = await getRadioMetadata();

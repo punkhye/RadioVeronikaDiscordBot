@@ -6,6 +6,7 @@ const joinCommand = require('./commands/join.js');
 const nowPlayingCommand = require('./commands/nowplaying.js');
 const leaveCommand = require('./commands/leave.js');
 const nextSongCommand = require('./commands/nextsong.js');
+const helpCommand = require('./commands/help.js');
 
 const client = new Client({
     intents: [
@@ -22,6 +23,7 @@ client.commands.set(joinCommand.data.name, joinCommand);
 client.commands.set(nowPlayingCommand.data.name, nowPlayingCommand);
 client.commands.set(leaveCommand.data.name, leaveCommand);
 client.commands.set(nextSongCommand.data.name, nextSongCommand);
+client.commands.set(helpCommand.data.name, helpCommand);
 
 // Handle interactions
 client.on('interactionCreate', async (interaction) => {

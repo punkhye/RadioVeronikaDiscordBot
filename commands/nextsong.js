@@ -4,7 +4,7 @@ const axios = require('axios');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('nextsong')
-        .setDescription('Show the next song that will play on the radio'),
+        .setDescription('Показвам ти следващата песен.'),
     async execute({ interaction }) {
         try {
             // Fetch the radio metadata
@@ -19,7 +19,8 @@ module.exports = {
                 if (nextSong) {
                     const nextArtist = nextSong.artist;
                     const nextTitle = nextSong.title;
-                    await interaction.reply(`Следващата песен е : '${nextTitle}' от '${nextArtist}'`);
+                  //  await interaction.reply(`Следващата песен е : '${nextTitle}' от '${nextArtist}'`);
+                  await interaction.reply(`Следващата песен е : ${nextArtist} - ${nextTitle}`);
                     console.log(`Next song: '${nextTitle}' by '${nextArtist}'`);
                 } else {
                     await interaction.reply('Не можах да получа информация за следващата песен.');

@@ -4,7 +4,7 @@ const { getVoiceConnection } = require('@discordjs/voice');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('leave')
-        .setDescription('Гониш ме от канала'),
+        .setDescription('Гониш ме от канала. :('),
     async execute({ interaction }) {
         const voiceChannel = interaction.member.voice.channel;
 
