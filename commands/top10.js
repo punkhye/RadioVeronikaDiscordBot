@@ -49,7 +49,7 @@ module.exports = {
                 .map(song => `${song.rank}. ${song.artist} - ${song.title} `)
                 .join('\n');
 
-            await interaction.editReply(`Ето ги Вероника Hot 10 песни:\n\n${formattedData}`);
+            await interaction.editReply(`Вероника Hot 10 :\n\n${formattedData}`);
         } catch (error) {
             console.error('Error executing top10 command:', error);
             if (!interaction.replied) {
