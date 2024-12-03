@@ -1,5 +1,7 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const {REST} = require("@discordjs/rest");
+
 
 // Import command modules
 const joinCommand = require('./commands/join.js');
@@ -7,6 +9,8 @@ const nowPlayingCommand = require('./commands/nowplaying.js');
 const leaveCommand = require('./commands/leave.js');
 const nextSongCommand = require('./commands/nextsong.js');
 const helpCommand = require('./commands/help.js');
+const top10Command = require('./commands/top10.js');
+
 
 const client = new Client({
     intents: [
@@ -24,6 +28,7 @@ client.commands.set(nowPlayingCommand.data.name, nowPlayingCommand);
 client.commands.set(leaveCommand.data.name, leaveCommand);
 client.commands.set(nextSongCommand.data.name, nextSongCommand);
 client.commands.set(helpCommand.data.name, helpCommand);
+client.commands.set(top10Command.data.name, top10Command);
 
 // Handle interactions
 client.on('interactionCreate', async (interaction) => {
