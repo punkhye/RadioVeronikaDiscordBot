@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const {REST} = require("@discordjs/rest");
 
 
@@ -9,14 +10,14 @@ const nowPlayingCommand = require('./commands/nowplaying.js');
 const leaveCommand = require('./commands/leave.js');
 const nextSongCommand = require('./commands/nextsong.js');
 const helpCommand = require('./commands/help.js');
-const top10Command = require('./commands/top10.js');
+const top10Command = require('./commands/top10.js'); 
 
 
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildVoiceStates,
-        GatewayIntentBits.GuildMessages
+        GatewayIntentBits.GuildMessages,
     ]
 });
 
@@ -53,6 +54,9 @@ client.on('ready', async () => {
     if (guild) {
         await guild.commands.set(client.commands.map(command => command.data.toJSON()));
         console.log('Slash commands registered!');
+    }
+    else{
+        console.log('error. the commands are not registered!');
     }
 });
 
