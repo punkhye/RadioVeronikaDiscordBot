@@ -11,7 +11,7 @@ module.exports = {
                 return `**/${cmd.data.name}** - ${cmd.data.description}`;
             }).join('\n');
 
-            // Check if there are any commands
+            // Checking for commands
             if (commandsList.length > 0) {
                 await interaction.reply(`Ето всички налични команди:\n\n${commandsList}`);
             } else {

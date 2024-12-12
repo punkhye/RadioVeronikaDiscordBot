@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const {REST} = require("@discordjs/rest");
 
 
-// Import command modules
+// Import commands
 const joinCommand = require('./commands/join.js');
 const nowPlayingCommand = require('./commands/nowplaying.js');
 const leaveCommand = require('./commands/leave.js');
@@ -23,7 +23,7 @@ const client = new Client({
 
 client.commands = new Collection();
 
-// Register commands
+// Set commands
 client.commands.set(joinCommand.data.name, joinCommand);
 client.commands.set(nowPlayingCommand.data.name, nowPlayingCommand);
 client.commands.set(leaveCommand.data.name, leaveCommand);
@@ -46,7 +46,7 @@ client.on('interactionCreate', async (interaction) => {
     }
 });
 
-// Log the bot in and register commands
+// Log the bot / register the commands
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}`);
 
@@ -60,5 +60,5 @@ client.on('ready', async () => {
     }
 });
 
-// Log in using the bot token
+// Log in the token
 client.login(process.env.TOKEN);

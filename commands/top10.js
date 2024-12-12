@@ -7,7 +7,7 @@ module.exports = {
         .setDescription('Показвам седмичната класация "Вероника Hot 10".'),
     async execute({ interaction }) {
         try {
-            // Acknowledge the interaction to prevent timeout
+            // To prevent a timeout
             await interaction.deferReply();
 
             // Launch Puppeteer
@@ -20,13 +20,13 @@ module.exports = {
             // Wait for the chart grid to load
             await page.waitForSelector('#chart-grid');
 
-            // Extract song titles and artists
+            // Get the song titles and artists
             const chartData = await page.evaluate(() => {
                 const songs = [];
                 const songElements = document.querySelectorAll('#chart-grid .song-data');
 
                 songElements.forEach((element, index) => {
-                    if (index < 10) { // Limit to top 10
+                    if (index < 10) { // just in case limit to top 10
                         const titleElement = element.querySelector('.chart-song-title');
                         const artistElement = element.querySelector('.chart-song-artist');
 
@@ -44,7 +44,7 @@ module.exports = {
 
             await browser.close();
 
-            // Format and respond with the extracted data
+            // Format and respond with the data
             const formattedData = chartData
                 .map(song => `${song.rank}. ${song.artist} - ${song.title} `)
                 .join('\n');

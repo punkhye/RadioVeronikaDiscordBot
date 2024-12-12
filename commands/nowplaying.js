@@ -10,7 +10,7 @@ async function getRadioMetadata() {
         });
 
         if (response.status === 200) {
-            return response.data; // This should contain the JSON metadata
+            return response.data; //  the JSON metadata
         } else {
             console.error('Failed to fetch metadata:', response.status);
             return null;
@@ -27,7 +27,7 @@ module.exports = {
         .setDescription('Показвам коя песен върви в момента.'),
     async execute({ interaction }) {
         try {
-            // Acknowledge the interaction and extend the response time
+            // extend the response time
             await interaction.reply({ content: 'В момента се обработва информацията...', ephemeral: true });
 
             // Fetch the metadata
@@ -51,7 +51,7 @@ module.exports = {
         } catch (error) {
             console.error('Error in command execution:', error);
 
-            // Ensure that the interaction is valid before attempting to reply
+            //validating the interaction before replying
             if (!interaction.isReplied() && !interaction.isDeferred()) {
                 try {
                     await interaction.editReply('Възникна проблем при получаването на информацията за песента.');

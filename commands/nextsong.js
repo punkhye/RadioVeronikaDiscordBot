@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('Показвам ти следващата песен.'),
     async execute({ interaction }) {
         try {
-            // Send an initial "processing" response to avoid timing out
+            //to avoid timeout
             await interaction.reply({ content: 'В момента се обработва информацията за следващата песен...', ephemeral: true });
 
             // Fetch the radio metadata
